@@ -1,6 +1,6 @@
 # exercism exercises
 
-Exercises from exercism.io
+Exercises from [exercism.io](http://exercism.io/)
 
 # license
 
