@@ -3,8 +3,8 @@
   (:use [clojure.string :only [blank?, upper-case]]))
 
 (defn yelling? [input]
-  true? (and (= input (upper-case input)) 
-             (re-find #"[A-Z]" input)))
+  (and (= input (upper-case input)) 
+       (not= nil (re-find #"[A-Z]" input))))
 
 (defn response-for [input] 
   (cond
