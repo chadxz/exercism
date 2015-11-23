@@ -15,14 +15,12 @@
     :default (str bottles " bottles")))
 
 (defn verse [bottles]
-  (cond
-    (= bottles 0)
-      (let [eng (englishify bottles) capped (capitalize eng)]
-        (str (format s1-format capped eng) s2-empty))
-    :default 
-      (let [take-what (if (= bottles 1) "it" "one")]
-        (str (format s1-format (englishify bottles) (englishify bottles))
-              (format s2-format take-what (englishify (dec bottles)))))))
+  (if (= bottles 0)
+    (let [eng (englishify bottles) capped (capitalize eng)]
+      (str (format s1-format capped eng) s2-empty))
+    (let [take-what (if (= bottles 1) "it" "one")]
+      (str (format s1-format (englishify bottles) (englishify bottles))
+           (format s2-format take-what (englishify (dec bottles)))))))
 
 (defn sing 
   ([start end]
