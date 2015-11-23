@@ -22,13 +22,13 @@
     :default 
       (let [take-what (if (= bottles 1) "it" "one")]
         (str (format s1-format (englishify bottles) (englishify bottles))
-              (format s2-format take-what (englishify (- bottles 1)))))))
+              (format s2-format take-what (englishify (dec bottles)))))))
 
 (defn sing 
   ([start end]
     (str 
       (verse start)
       (when (not= start end) 
-        (str "\n" (sing (- start 1) end)))))
+        (str "\n" (sing (dec start) end)))))
   ([start]
     (sing start 0)))
